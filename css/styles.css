@@ -86,7 +86,18 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 27px;
+}
+
+.header-nav-link::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: transparent;
 }
 
 .header-nav-link:hover,
@@ -95,9 +106,8 @@ button {
   color: #404bbf;
 }
 
-.header-nav-link:active,
-.header-nav-link:focus {
-  border-bottom: 2px solid #404bbf;
+.header-nav-link:active::after {
+  background-color: #404bbf;
 }
 
 .header-adress {
@@ -254,14 +264,17 @@ button {
   background-color: #fff;
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0px 0px 4px 4px;
+  fill: rgba(244, 244, 253, 1);
+  transition-property: background;
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
-.team-item-img {
+.team-item:hover .team-icon-item {
+  background:#404bbf
 }
 
 .team-item-card {
-  padding: 32px 0;
+  padding: 32px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -279,22 +292,23 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #03a9f4;
+  width: 100%;
+  gap: 24px;
 }
 
 .team-icon-item {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--IRIS, #4D5AE5);
   border-radius: 50%;
 }
 
-.team-item {
-  fill: rgba(244, 244, 253, 1);
+.team-icon {
+  fill: #f4f4fd;
 }
 
 /* Our Portfolio */
@@ -368,4 +382,48 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   width: 264px;
+}
+
+/* .footer-logo-text {
+  margin-right: 130px;
+} */
+
+.footer-cont {
+  display: flex;
+  align-items: flex-start;
+  gap: 130px;
+}
+
+.footer-soc-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.footer-soc-list {
+  max-width: 208px;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-soc-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--IRIS, #4D5AE5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.footer-icon {
+  fill: #fff;
+}
+
+.footer-soc-item:hover, .footer-soc-item:focus, .footer-soc-item:active {
+  background-color: #31D0AA;
 }
