@@ -44,7 +44,7 @@ button {
 
 /* Hedder */
 .header {
-  border-bottom: 1px solid var(--CORNFLOWER, #E7E9FC);
+  border-bottom: 1px solid var(--CORNFLOWER, #e7e9fc);
 }
 
 .header-container {
@@ -86,18 +86,22 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 27px;
+  display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  position: relative;
 }
 
 .header-nav-link::after {
-  content: "";
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
   width: 100%;
   height: 4px;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav-link:hover,
@@ -123,6 +127,10 @@ button {
   gap: 40px;
 }
 
+.header-adress-link {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .header-adress-link:hover,
 .header-adress-link:active,
 .header-adress-link:focus {
@@ -132,8 +140,11 @@ button {
 /* Hero */
 .hero {
   background-color: #2e2f42;
-  background-image: linear-gradient(to bottom, 
-  rgba(46, 47, 66, 0.70), rgba(46, 47, 66, 0.70)), 
+  background-image: linear-gradient(
+      to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
     url(../images/people-office1.jpg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -166,6 +177,7 @@ button {
   margin: 0 auto;
   padding: 16px 32px;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
@@ -232,8 +244,8 @@ button {
   width: 100%;
   height: 112px;
   border-radius: 4px;
-  border: 1px solid var(--LIGHT-SLATE, #8E8F99);
-  background: var(--CLOUD, #F4F4FD);
+  border: 1px solid var(--LIGHT-SLATE, #8e8f99);
+  background: var(--CLOUD, #f4f4fd);
   padding: 24px;
 }
 
@@ -265,12 +277,13 @@ button {
   flex-basis: calc((100% - 72px) / 4);
   border-radius: 0px 0px 4px 4px;
   fill: rgba(244, 244, 253, 1);
-  transition-property: background;
-  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team-item:hover .team-icon-item {
-  background:#404bbf
+  background: #404bbf;
 }
 
 .team-item-card {
@@ -303,8 +316,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--IRIS, #4D5AE5);
+  background: var(--IRIS, #4d5ae5);
   border-radius: 50%;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-icon {
@@ -330,10 +350,41 @@ button {
 .portfolio-item {
   background: #fff;
   flex-basis: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  transform: translateY(0);
 }
 
 .portfolio-item-img {
   object-fit: cover;
+}
+
+.portf-img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  color: #f4f4fd;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  padding: 32px;
+  background-color: #4d5ae5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-subtitle {
@@ -415,15 +466,18 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--IRIS, #4D5AE5);
+  background: var(--IRIS, #4d5ae5);
   border-radius: 50%;
   cursor: pointer;
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon {
   fill: #fff;
 }
 
-.footer-soc-item:hover, .footer-soc-item:focus, .footer-soc-item:active {
-  background-color: #31D0AA;
+.footer-soc-item:hover,
+.footer-soc-item:focus,
+.footer-soc-item:active {
+  background: #31d0aa;
 }
